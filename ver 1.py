@@ -1,4 +1,13 @@
+import random
+import string
+
+def generate_random_text(length=100):
+    words = [''.join(random.choices(string.ascii_lowercase, k=random.randint(3, 7))) for _ in range(length)]
+    return ' '.join(words)
+
 def main():
+    text = None
+
     while True:
         print("\nМеню:")
         print("1. Ввод исходных данных")
@@ -14,9 +23,10 @@ def main():
             print("2. Сгенерировать данные случайным образом")
             input_choice = input("Выберите способ ввода: ")
             if input_choice == '1':
-                print("Ввод данных вручную (пока не реализовано)")
+                text = input("Введите текст: ")
             elif input_choice == '2':
-                print("Генерация данных случайным образом (пока не реализовано)")
+                text = generate_random_text()
+                print("Сгенерированный текст:", text)
             else:
                 print("Неверный выбор. Попробуйте снова.")
 
@@ -35,3 +45,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
