@@ -46,7 +46,11 @@ def main():
                 print("Алгоритм выполнен.")
 
         elif choice == '3':
-            print("Вывод результата (пока не реализовано)")
+            if result is None:
+                print("Сначала выполните алгоритм.")
+            else:
+                print("Результат:")
+                print(' '.join(result))
 
         elif choice == '4':
             print("Завершение работы программы.")
@@ -57,5 +61,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
