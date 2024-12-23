@@ -5,8 +5,14 @@ def generate_random_text(length=100):
     words = [''.join(random.choices(string.ascii_lowercase, k=random.randint(3, 7))) for _ in range(length)]
     return ' '.join(words)
 
+def reverse_words(text):
+    words = text.split()
+    reversed_words = [word[::-1] for word in words]
+    return reversed_words
+
 def main():
     text = None
+    result = None
 
     while True:
         print("\nМеню:")
@@ -30,8 +36,14 @@ def main():
             else:
                 print("Неверный выбор. Попробуйте снова.")
 
+            result = None  # Сбрасываем результат при вводе новых данных
+
         elif choice == '2':
-            print("Выполнение алгоритма (пока не реализовано)")
+            if text is None:
+                print("Сначала введите исходные данные.")
+            else:
+                result = reverse_words(text)
+                print("Алгоритм выполнен.")
 
         elif choice == '3':
             print("Вывод результата (пока не реализовано)")
@@ -45,4 +57,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
